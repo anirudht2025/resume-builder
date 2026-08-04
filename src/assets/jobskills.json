@@ -1,0 +1,252 @@
+{
+  "Software Engineer": [
+    "Data Structures",
+    "Algorithms",
+    "OOP",
+    "Git",
+    "SQL",
+    "REST APIs",
+    "Debugging",
+    "Problem Solving"
+  ],
+  "Software Developer": [
+    "Programming",
+    "Git",
+    "SQL",
+    "REST APIs",
+    "Unit Testing",
+    "Debugging",
+    "Agile",
+    "Communication"
+  ],
+  "Frontend Developer": [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "TypeScript",
+    "React",
+    "Angular",
+    "Responsive Design",
+    "REST APIs"
+  ],
+  "Backend Developer": [
+    "Node.js",
+    "Python",
+    "Java",
+    "C#",
+    ".NET",
+    "Django",
+    "SQL",
+    "Authentication"
+  ],
+  "Full Stack Developer": [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "React",
+    "Node.js",
+    "SQL",
+    "REST APIs",
+    "Git"
+  ],
+  "Web Developer": [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "Bootstrap",
+    "PHP",
+    "Responsive Design",
+    "Git",
+    "SEO Basics"
+  ],
+  "Mobile App Developer": [
+    "Flutter",
+    "React Native",
+    "REST APIs",
+    "Firebase",
+    "Git",
+    "State Management",
+    "Testing",
+    "App Deployment"
+  ],
+  "Android Developer": [
+    "Kotlin",
+    "Java",
+    "Android SDK",
+    "Jetpack Compose",
+    "Room",
+    "Firebase",
+    "REST APIs",
+    "Gradle"
+  ],
+  "iOS Developer": [
+    "Swift",
+    "SwiftUI",
+    "UIKit",
+    "Xcode",
+    "Core Data",
+    "REST APIs",
+    "CocoaPods",
+    "App Store Deployment"
+  ],
+  "Python Developer": [
+    "Python",
+    "Django",
+    "Flask",
+    "FastAPI",
+    "SQL",
+    "REST APIs",
+    "Pytest",
+    "Git"
+  ],
+  "Java Developer": [
+    "Java",
+    "Spring Boot",
+    "Hibernate",
+    "Maven",
+    "SQL",
+    "REST APIs",
+    "JUnit",
+    "Git"
+  ],
+  ".NET Developer": [
+    "C#",
+    "ASP.NET Core",
+    "Entity Framework Core",
+    "LINQ",
+    "SQL Server",
+    "REST APIs",
+    "JWT",
+    "Git"
+  ],
+  "Node.js Developer": [
+    "Node.js",
+    "Express.js",
+    "MongoDB",
+    "JWT",
+    "REST APIs",
+    "Socket.io",
+    "Git",
+    "NPM"
+  ],
+  "React Developer": [
+    "React",
+    "JavaScript",
+    "TypeScript",
+    "Redux",
+    "Context API",
+    "HTML",
+    "CSS",
+    "Axios"
+  ],
+  "Angular Developer": [
+    "Angular",
+    "TypeScript",
+    "RxJS",
+    "Angular Material",
+    "HTML",
+    "CSS",
+    "REST APIs",
+    "NgRx"
+  ],
+  "DevOps Engineer": [
+    "Docker",
+    "Kubernetes",
+    "CI/CD",
+    "Linux",
+    "AWS",
+    "Terraform",
+    "Jenkins",
+    "Monitoring"
+  ],
+  "Cloud Engineer": [
+    "AWS",
+    "Azure",
+    "GCP",
+    "Docker",
+    "Kubernetes",
+    "Terraform",
+    "Networking",
+    "Linux"
+  ],
+  "Data Analyst": [
+    "SQL",
+    "Excel",
+    "Power BI",
+    "Tableau",
+    "Python",
+    "Data Visualization",
+    "Statistics",
+    "Pandas"
+  ],
+  "Data Scientist": [
+    "Python",
+    "Machine Learning",
+    "Pandas",
+    "NumPy",
+    "Scikit-learn",
+    "Statistics",
+    "SQL",
+    "Data Visualization"
+  ],
+  "Machine Learning Engineer": [
+    "Python",
+    "TensorFlow",
+    "PyTorch",
+    "Scikit-learn",
+    "MLOps",
+    "Feature Engineering",
+    "Docker",
+    "Model Deployment"
+  ],
+  "AI Engineer": [
+    "Python",
+    "LLMs",
+    "TensorFlow",
+    "PyTorch",
+    "Prompt Engineering",
+    "Vector Databases",
+    "APIs",
+    "MLOps"
+  ],
+  "QA Engineer": [
+    "Manual Testing",
+    "Test Cases",
+    "Bug Reporting",
+    "Regression Testing",
+    "API Testing",
+    "Agile",
+    "Jira",
+    "SQL"
+  ],
+  "Automation Test Engineer": [
+    "Selenium",
+    "Playwright",
+    "Cypress",
+    "Java",
+    "Python",
+    "TestNG",
+    "CI/CD",
+    "API Testing"
+  ],
+  "UI/UX Designer": [
+    "Figma",
+    "Adobe XD",
+    "Wireframing",
+    "Prototyping",
+    "User Research",
+    "Design Systems",
+    "Typography",
+    "Color Theory"
+  ],
+  "Business Analyst": [
+    "Requirement Gathering",
+    "Documentation",
+    "SQL",
+    "Excel",
+    "Agile",
+    "User Stories",
+    "Process Modeling",
+    "Communication"
+  ]
+}

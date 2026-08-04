@@ -1,0 +1,20 @@
+Project Overview
+-------------------------
+
+Resume Builder -> React.js + JSON Server
+-------------------------
+- Generate resume based on user-given details
+- Generate downloadable PDF resumes
+- Show resume history
+
+Pages:
+-------------------------
+1. Landing
+2. Instruction
+3. Forms
+4. History
+
+Header, Footer, Preview, etc.
+
+Flow:
+Landing -> Instruction -> Forms -> Preview -> Download, History
