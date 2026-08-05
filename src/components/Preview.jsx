@@ -24,7 +24,7 @@ function Preview({ resume }) {
       <Divider />
 
       <h4 className="mt-3 mb-2">Professional Summary</h4>
-      <p style={{ textAlign: "justify" }}>{resume?.summery}</p>
+      <p style={{ textAlign: "justify" }}>{resume?.summary}</p>
 
       <Divider />
 

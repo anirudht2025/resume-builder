@@ -12,7 +12,7 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import jobRoles from "../assets/it_job_roles.json";
 import jobSkills from "../assets/jobskills.json";
-import summery from "../assets/professional_summary.json";
+import summary from "../assets/professional_summary.json";
 import { addResumeApi } from "../services/allApiServices";
 import { useNavigate } from "react-router-dom";
 
@@ -40,7 +40,7 @@ function InputForm({ setRes }) {
     college: "",
     year: "",
     skills: [],
-    summery: "",
+    summary: "",
   });
 
   const nav = useNavigate();
@@ -130,7 +130,7 @@ function InputForm({ setRes }) {
     setResumeData({
       ...resumeData,
       skills: jobSkills[resumeData.jobtitle],
-      summery: summery[resumeData.jobtitle],
+      summary: summary[resumeData.jobtitle],
     });
     handleNext();
   };
@@ -148,7 +148,7 @@ function InputForm({ setRes }) {
       college,
       year,
       skills,
-      summery,
+      summary,
     } = resumeData;
 
     if (
@@ -163,7 +163,7 @@ function InputForm({ setRes }) {
       college &&
       year &&
       skills &&
-      summery
+      summary
     ) {
       // api call
       try {
