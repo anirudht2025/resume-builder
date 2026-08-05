@@ -20,7 +20,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/steps" element={<ResumeSteps />} />
         <Route path="/form" element={<UserForm />} />
-        <Route path="/view" element={<ViewResume />} />
+        <Route path="/view/:rid" element={<ViewResume />} />
         <Route path="/history" element={<Downloads />} />
         <Route path="/*" element={<Pnf />} />
       </Routes>

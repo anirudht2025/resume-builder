@@ -171,7 +171,7 @@ function InputForm({ setRes }) {
         console.log(response);
         if (response.status === 201) {
           alert("Resume Created!");
-          nav("/view");
+          nav(`/view/${response?.data?.id}`);
         } else {
           alert("Resume Creation Failed!");
         }

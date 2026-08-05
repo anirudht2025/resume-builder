@@ -1,0 +1,5 @@
+Dynamic Routing
+
+- Dynamic routing is a technique used to create routes with variable values.
+- It allows us to pass data through the URL.
+- React Router uses parameters for dynamic routes.
