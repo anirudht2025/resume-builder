@@ -14,3 +14,13 @@ export const getResumeApi = async (id) => {
 export const addDownloadHistoryApi = async (data) => {
   return await apiService("POST", "/downloads", data);
 };
+
+// Update resume
+export const updateResumeApi = async (id, data) => {
+  return await apiService("PUT", `/allResumes/${id}`, data);
+};
+
+// Get all download history
+export const getAllHistoryApi = async () => {
+  return await apiService("GET", "/downloads", {});
+};

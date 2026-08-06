@@ -81,9 +81,9 @@ function ViewResume() {
               {/* <button className="btn text-warning">
                 <FaEdit style={{ fontSize: "35px" }} />
               </button> */}
-              <Edit resume={resumeData} />
+              <Edit resume={resumeData} setResumeData={setResumeData} />
               {/* Download History */}
-              <Link className="btn text-secondary">
+              <Link className="btn text-secondary" to={"/history"}>
                 <FaHistory style={{ fontSize: "35px" }} />
               </Link>
               {/* Back-Form */}

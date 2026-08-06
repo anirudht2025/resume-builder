@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { FaEdit } from "react-icons/fa";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -11,6 +11,7 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { Divider } from "@mui/material";
 import jobRoles from "../assets/it_job_roles.json";
+import { updateResumeApi } from "../services/allApiServices";
 
 const style = {
   position: "absolute",
@@ -26,26 +27,59 @@ const style = {
   p: 4,
 };
 
-function Edit({ resume }) {
+function Edit({ resume, setResumeData }) {
   const [open, setOpen] = React.useState(false);
+  const inputRef = useRef();
 
-  const [updateForm, setUpdateForm] = useState({
-    fullname: resume?.fullname,
-    location: resume?.location,
-    jobtitle: resume?.jobtitle,
-    email: resume?.email,
-    phone: resume?.phone,
-    linkedin: resume?.linkedin,
-    github: resume?.github,
-    degree: resume?.degree,
-    college: resume?.college,
-    year: resume?.year,
-    skills: resume?.skills,
-    summary: resume?.summary,
-  });
+  // const [updateForm, setUpdateForm] = useState({
+  //   fullname: resume?.fullname,
+  //   location: resume?.location,
+  //   jobtitle: resume?.jobtitle,
+  //   email: resume?.email,
+  //   phone: resume?.phone,
+  //   linkedin: resume?.linkedin,
+  //   github: resume?.github,
+  //   degree: resume?.degree,
+  //   college: resume?.college,
+  //   year: resume?.year,
+  //   skills: resume?.skills,
+  //   summary: resume?.summary,
+  // });
 
-  const handleUpdate = () => {
-    console.log(updateForm);
+  const addSkills = () => {
+    const skill = inputRef.current.value;
+    console.log(skill);
+    if (skill) {
+      if (
+        resume?.skills
+          ?.map((item) => item.toLowerCase())
+          .includes(skill.toLowerCase())
+      ) {
+        alert("Skill already added!");
+      } else {
+        setResumeData({ ...resume, skills: [...resume.skills, skill] });
+      }
+    } else {
+      alert("Enter valid input!");
+    }
+  };
+
+  const removeSkills = (skill) => {
+    setResumeData({
+      ...resume,
+      skills: resume?.skills?.filter((item) => item != skill),
+    });
+  };
+
+  const handleUpdate = async () => {
+    console.log(resume);
+    const response = await updateResumeApi(resume?.id, resume);
+    console.log(response);
+    if (response.status === 200) {
+      alert("Resume Updated!");
+    } else {
+      alert("Updation Failed!");
+    }
   };
 
   const handleOpen = () => setOpen(true);
@@ -87,8 +121,8 @@ function Edit({ resume }) {
                 label="Full Name"
                 defaultValue={resume?.fullname}
                 onChange={(e) =>
-                  setUpdateForm({
-                    ...updateForm,
+                  setResumeData({
+                    ...resume,
                     fullname: e.target.value,
                   })
                 }
@@ -100,8 +134,8 @@ function Edit({ resume }) {
                 label="Location"
                 defaultValue={resume?.location}
                 onChange={(e) =>
-                  setUpdateForm({
-                    ...updateForm,
+                  setResumeData({
+                    ...resume,
                     location: e.target.value,
                   })
                 }
@@ -119,8 +153,8 @@ function Edit({ resume }) {
                   id="job-title-select"
                   defaultValue={resume?.jobtitle}
                   onChange={(e) =>
-                    setUpdateForm({
-                      ...updateForm,
+                    setResumeData({
+                      ...resume,
                       jobtitle: e.target.value,
                     })
                   }
@@ -148,8 +182,8 @@ function Edit({ resume }) {
                 label="Email"
                 defaultValue={resume?.email}
                 onChange={(e) =>
-                  setUpdateForm({
-                    ...updateForm,
+                  setResumeData({
+                    ...resume,
                     email: e.target.value,
                   })
                 }
@@ -161,8 +195,8 @@ function Edit({ resume }) {
                 label="Contact Number"
                 defaultValue={resume?.phone}
                 onChange={(e) =>
-                  setUpdateForm({
-                    ...updateForm,
+                  setResumeData({
+                    ...resume,
                     phone: e.target.value,
                   })
                 }
@@ -174,8 +208,8 @@ function Edit({ resume }) {
                 label="LinkedIn Link"
                 defaultValue={resume?.linkedin}
                 onChange={(e) =>
-                  setUpdateForm({
-                    ...updateForm,
+                  setResumeData({
+                    ...resume,
                     linkedin: e.target.value,
                   })
                 }
@@ -188,8 +222,8 @@ function Edit({ resume }) {
                 label="GitHub Link"
                 defaultValue={resume?.github}
                 onChange={(e) =>
-                  setUpdateForm({
-                    ...updateForm,
+                  setResumeData({
+                    ...resume,
                     github: e.target.value,
                   })
                 }
@@ -210,8 +244,8 @@ function Edit({ resume }) {
                 label="Bachelor's Degree"
                 defaultValue={resume?.degree}
                 onChange={(e) =>
-                  setUpdateForm({
-                    ...updateForm,
+                  setResumeData({
+                    ...resume,
                     degree: e.target.value,
                   })
                 }
@@ -224,8 +258,8 @@ function Edit({ resume }) {
                 label="University/College Name"
                 defaultValue={resume?.college}
                 onChange={(e) =>
-                  setUpdateForm({
-                    ...updateForm,
+                  setResumeData({
+                    ...resume,
                     college: e.target.value,
                   })
                 }
@@ -238,8 +272,8 @@ function Edit({ resume }) {
                 label="Year of Graduation"
                 defaultValue={resume?.year}
                 onChange={(e) =>
-                  setUpdateForm({
-                    ...updateForm,
+                  setResumeData({
+                    ...resume,
                     year: e.target.value,
                   })
                 }
@@ -255,6 +289,19 @@ function Edit({ resume }) {
 
             <h4 className="mt-3">Technical Skills</h4>
 
+            <div className="d-flex gap-2 p-3">
+              <TextField
+                inputRef={inputRef}
+                id="outlined-basic"
+                label="Add a skill"
+                variant="outlined"
+                fullWidth
+              />
+              <Button variant="contained" onClick={addSkills} size="small">
+                Add
+              </Button>
+            </div>
+
             <div className="d-flex flex-wrap gap-3 p-3">
               {resume?.skills?.map((item, index) => (
                 <span key={index} className="px-2 py-1 border rounded">
@@ -263,6 +310,7 @@ function Edit({ resume }) {
                   <span
                     className="text-danger fw-bold ms-2"
                     style={{ cursor: "pointer" }}
+                    onClick={() => removeSkills(item)}
                   >
                     X
                   </span>
@@ -281,8 +329,8 @@ function Edit({ resume }) {
                 label="Summary"
                 defaultValue={resume?.summary}
                 onChange={(e) =>
-                  setUpdateForm({
-                    ...updateForm,
+                  setResumeData({
+                    ...resume,
                     summary: e.target.value,
                   })
                 }
