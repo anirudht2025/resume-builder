@@ -9,6 +9,8 @@ import Edit from "../components/Edit";
 import { useParams } from "react-router-dom";
 import { getResumeApi } from "../services/allApiServices";
 import html2canvas from "html2canvas";
+import { addDownloadHistoryApi } from "../services/allApiServices";
+import { jsPDF } from "jspdf";
 
 function ViewResume() {
   const [resumeData, setResumeData] = useState({});
@@ -39,9 +41,27 @@ function ViewResume() {
 
     // html -> image
     const canvas = await html2canvas(preview);
-    console.log(canvas);
-    const imgUrl = canvas.toDataURL();
-    console.log(imgUrl);
+    // console.log(canvas);
+    // const imgUrl = canvas.toDataURL();
+    canvas.toBlob((blob) => {
+      const shortUrl = URL.createObjectURL(blob);
+      generatePdf(shortUrl);
+    });
+
+    // API call
+    const generatePdf = async (resumeImage) => {
+      const downloadhistory = { resumeId, datetime, picture: resumeImage };
+      const response = await addDownloadHistoryApi(downloadhistory);
+      console.log(response);
+
+      if (response.status === 201) {
+        const pdf = new jsPDF();
+        const imgWidth = pdf.internal.pageSize.getWidth();
+        const imgHeight = pdf.internal.pageSize.getHeight();
+        pdf.addImage(resumeImage, "PNG", 0, 0, imgWidth, imgHeight);
+        pdf.save(`${resumeData.fullname}.pdf`);
+      }
+    };
   };
 
   return (
@@ -61,7 +81,7 @@ function ViewResume() {
               {/* <button className="btn text-warning">
                 <FaEdit style={{ fontSize: "35px" }} />
               </button> */}
-              <Edit />
+              <Edit resume={resumeData} />
               {/* Download History */}
               <Link className="btn text-secondary">
                 <FaHistory style={{ fontSize: "35px" }} />
