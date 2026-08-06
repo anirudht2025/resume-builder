@@ -33,7 +33,7 @@ function Downloads() {
         <div className="my-3">
           <div className="row container-fluid">
             {history.map((item) => (
-              <div className="col-md-4" key={item?._id}>
+              <div className="col-md-4" key={item?.id}>
                 <div className="shadow p-3 rounded">
                   <div className="d-flex justify-content-center align-items-center mb-2">
                     <h4 className="mb-0">Review at : {item?.datetime}</h4>
