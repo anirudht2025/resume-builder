@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 import { FaTrash } from "react-icons/fa";
-import { getAllHistoryApi } from "../services/allApiServices";
+import {
+  deleteHistoryById,
+  getAllHistoryApi,
+} from "../services/allApiServices";
 
 function Downloads() {
   const [history, setHistory] = useState([]);
@@ -19,6 +22,19 @@ function Downloads() {
   useEffect(() => {
     getHistory();
   }, []);
+
+  const handleDelete = async (id) => {
+    try {
+      const response = await deleteHistoryById(id);
+      console.log(response);
+
+      if (response.status === 200) {
+        getHistory();
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   return (
     <>
@@ -38,7 +54,10 @@ function Downloads() {
                   <div className="d-flex justify-content-center align-items-center mb-2">
                     <h4 className="mb-0">Review at : {item?.datetime}</h4>
 
-                    <button className="btn text-danger p-0 ms-2">
+                    <button
+                      className="btn text-danger p-0 ms-2"
+                      onClick={() => handleDelete(item.id)}
+                    >
                       <FaTrash />
                     </button>
                   </div>

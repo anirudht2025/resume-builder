@@ -24,3 +24,8 @@ export const updateResumeApi = async (id, data) => {
 export const getAllHistoryApi = async () => {
   return await apiService("GET", "/downloads", {});
 };
+
+// Delete download history by id
+export const deleteHistoryById = async (id) => {
+  return await apiService("DELETE", `/downloads/${id}`, {});
+};
